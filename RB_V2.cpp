@@ -38,20 +38,11 @@ class constellation: public spot
 {   
     
     
-    protected:
+    public: 
     int startd;
     int endd;
-    void zodiac(int q)
-    {   
-
-    for(int i=1;i<14;i++)
-    {
-        if(C[i].startd<=q&&C[i].endd>=q)
-        {  cout<<"\nYour Zodiac Sign is ";
-        cout<<C[i].name;}
-    }
-    }
-    public:
+    
+ 
 	  //Apperence_View_Index (values of this index lie in range from 0 to 360), Values are in minute degree*10, of Centeral star
       //Side_View_Index (values of this index lie in range from -90 to +90), of central star.
 	//int stari;
@@ -243,6 +234,17 @@ void read(string file_name)
     file.close();
    
 }
+
+void zodiac(int q)
+    {   
+
+    for(int i=1;i<14;i++)
+    {
+        if(C[i].startd<=q&&C[i].endd>=q)
+        {  cout<<"\nYour Zodiac Sign is ";
+        cout<<C[i].name;}
+    }
+    }
 
 
 int date(int a, int b, int c)
