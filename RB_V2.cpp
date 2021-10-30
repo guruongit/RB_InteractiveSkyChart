@@ -10,7 +10,6 @@ using namespace std;
 //Functions
 int date(int day, int month, int year);
 void timeq(int hour, int minute);
-void zodiac(int z);
 int leapyear(int lp);
 void presentconst(int SAVI, int EAVI, int NSVI, int SSVI);    // calculates contellation present in sky
 void location(int SAVI, int EAVI, int NSVI,int SSVI , int temp[]);                      // to update const map accorting to location taking delhi as reference 
@@ -38,20 +37,24 @@ class constellation: public spot
 {   
     
     
-    public: 
+    private:
     int startd;
     int endd;
     
- 
+    public:
 	  //Apperence_View_Index (values of this index lie in range from 0 to 360), Values are in minute degree*10, of Centeral star
       //Side_View_Index (values of this index lie in range from -90 to +90), of central star.
 	//int stari;
-
-    constellation( string a, int b, int c, float d,float e)
+    
+    constellation( string a, int b, int c, float d, float e)
     {
         name = a ; startd =b; endd = c; AVI = d; SVI =e; 
     }
+    void zodiac(int q);
+  
 };
+
+
 
 class star: public spot
 {   
@@ -89,6 +92,18 @@ constellation C[] = {constellation("Aquarius",20,50,48.02, -37.88),constellation
 
 star S[] = {star("β Aquarii", 48.02, -37.88,1),star("α Aquarii", 59.93,-42.07 ,1),star("δ Aquarii", 49.58, -60.671,1),star("88 Aquarii", 41.76, -66.03,1),star("λ Aquarii",62.19 , -55.73,1),star("ε Aquarii",37.68 , -30.1,1),star("γ Aquarii",62.18 ,-45.84 ,1),star("98 Aquarii", 47.35,-68.59 ,1),star("τ2 Aquarii", 52.27,-58.52 ,1),star("η Aquarii", 66.84,-47.61 ,1),star("Ancha",53.51 ,-48.62 ,1),star("ψ1 Aquarii", 67.07,-61.11 ,1),star("φ Aquarii", 70.94,-58.74 ,1),star("ι Aquarii", 43.51,-49.37 ,1),star("99 Aquarii", 46.74,-69.46 ,1),star("ψ2 Aquarii", 67.62,-61.54 ,1),star("3 Aquarii", 42.24, -28.09,1),star("zeta2 Aquarii", 65.35,-46.33 ,1),star("86 Aquarii", 35.23, -66.15,1),star("omega2 Aquarii", 67.66, -69.64,1),star("eta Piscium", 137.01,-46.43,2),star("gamma Piscium",82.47 ,-52.02 ,2),star("omega Piscium", 100.69,-53.74,2),star("iota Piscium", 92.46,-52.96,2),star("omicron Piscium", 144.61, -51.43,2),star("epsilon Piscium", 127.89, -54.87,2),star("theta Piscium", 88.81,-50.88 ,2),star("alpha Piscium", 155.35, -55.6,2),star("30 Piscium", 91.58, -65.83,2),star("delta Piscium", 121.73,-55.28 ,2),star("ν Piscium", 145.12, -55.22,2),star("lambda Piscium", 90.15,-56.61 ,2),star("tau Piscium", 128.12, -32.58,2),star("beta Piscium)", 78.79,-49.61 ,2),star("33 Piscium", 93.75, -65.93,2),star("phi Piscium", 129.37, -38.01,2),star("chi Piscium",129.18 , -41.59,2),star("upsilon Piscium", 130.56, -35.19,2),star("mu Piscium", 140.07, -55.43,2),star("alpha Arietis", 144.57, -36.2,3),star("beta Arietis", 142.24, -39.68,3),star("Bharani - 41 Arietis", 152.98, -28.61,3),star("Botein - δ Arietis (delta Arietis)", 162.6, -32.14,3),star("Lilii Borea - 39 Arietis", 151.42, -27.1,3),star( "ε Arietis (epsilon Arietis)", 158.69,-32.51 ,3),star("35 Arietis", 151.29,-28.93 ,3),star("γ2 Arietis", 142.55,-41.2 ,3),star("Aldebaran - α Tauri (alpha Tauri)",180.97 ,-20.25 ,4),star("Elnath - β Tauri (beta Tauri)", 177.99, -3.74,4),star("Alcyone - η Tauri (eta Tauri)", 166.67, -23.45,4),star("Tianguan - ζ Tauri (zeta Tauri)", 185.69, -5.64,4),star("Chamukuy - θ2 Tauri (theta2 Tauri)",180.35 , -22.01,4),star("λ Tauri (lambda Tauri)", 178.37, -29.38,4),star("Ain - ε Tauri (epsilon Tauri)", 177.6, -19.92,4),star("Atlas - 27 Tauri",167.01 , -23.23,4),star("Prima Hyadum - γ Tauri (gamma Tauri)", 179.08, -23.82,4),star("-23.82", 166.18,-23.85 ,4),star("Secunda Hyadum - δ1 Tauri", 178.01, -22.01,4),star("Maia - 20 Tauri", 166.17, -23.51,4),star("Merope - 23 Tauri", 166.57,-23.75 ,4),star("Pollux - β Geminorum",192.23,23.41,5),star("Alhena - γ Geminorum",196.77,4.45,5),star("Pollux - β Geminorum", 192.23, 23.41, 5),star("Alhena - γ Geminorum", 196.77, 4.45, 5),star("Castor - α Geminorum", 187.44, 22.48, 5),star("Tejat - μ Geminorum (mu Geminorum)", 189.72, 4.17, 5),star("Mebsuta - ε Geminorum (epsilon Geminorum)", 189.54, 9.63, 5),star("τ Geminorum (tau Geminorum)", 187.22, 17.2, 5),star("ν Geminorum (nu Geminorum)", 192.42, 4.35, 5),star("Propus - η Geminorum (eta Geminorum)", 188.85, 2.52, 5),star("Alzirr - ξ Geminorum (xi Geminorum)", 200.74, 4.5, 5),star("Wasat - δ Geminorum (delta Geminorum)", 195.98, 15.89, 5),star("Mekbuda - ζ Geminorum (zeta Geminorum)", 195.75, 11.9, 5),star("κ Geminorum (kappa Geminorum)", 195.85, 21.97, 5),star("λ Geminorum (lambda Geminorum)", 200.92, 13.23, 5),star("θ Geminorum (theta Geminorum)", 182.1, 15.02, 5),star("υ Geminorum (upsilon Geminorum)", 192.6, 21.06, 5),star("σ Geminorum (sigma Geminorum)", 191.19, 23.27, 5),star("ρ Geminorum (rho Geminorum)", 187.14, 21.34, 5),star("1 Geminorum", 186.99, 0.72, 5),star("Tarf - β Cancri (beta Cancri)", 214.25, 23.05, 6),star("Acubens - α Cancri (alpha Cancri)", 216.51, 33.52, 6),star("Asellus Borealis - γ Cancri (gamma Cancri)", 204.17, 33.73, 6),star("Asellus Australis - δ Cancri (delta Cancri)", 208.02, 32.9, 6),star("ι Cancri (iota Cancri)", 195.88, 36.54, 6),star("Regulus - α Leonis (alpha Leonis)", 226.43, 48.94, 7),star("Denebola - β Leonis (beta Leonis)", 250.65, 70.81, 7),star("Zosma - δ Leonis (delta Leonis)", 224.22, 66.83, 7),star("Chertan - θ Leonis (theta Leonis)", 235.37, 64.59, 7),star("Adhafera - ζ Leonis (zeta Leonis)", 210.23, 54.95, 7),star("Subra - ο Leonis (omicron Leonis)", 224.6, 42.06, 7),star("Rasalas - μ Leonis (mu Leonis)", 204.05, 50.25, 7),star("Alterf - λ Leonis (lambda Leonis)", 206.69, 44.86, 7),star("ε Leonis (epsilon Leonis)", 206.82, 48.21, 7),star("Spica - α Virginis (alpha Virginis)", 316.11, 50.84,8),star("Vindemiatrix - ε Virginis (epsilon Virginis)", 312.34, 73.63,8),star("Heze - ζ Virginis (zeta Virginis)", 325.25, 60.39,8),star("Minelauva - δ Virginis (delta Virginis)", 305.53, 66.25,8),star("Zavijava - β Virginis (beta Virginis)", 270.5, 60.75,8),star("Porrima - γ Virginis (gamma Virginis)", 297.85, 61.33,8),star("Zaniah - η Virginis (eta Virginis)", 286.4, 61.19,8),star("Syrma - ι Virginis (iota Virginis)", 337.75, 51.07,8),star("Kang - κ Virginis (kappa Virginis)", 333.51, 47.7,8),star("Khambalia - λ Virginis (lambda Virginis)", 333.4, 44.25,8),star("μ Virginis (mu Virginis)", 346.55, 47.54,8),star("τ Virginis (tau Virginis)", 339.22, 59.38,8),star("θ Virginis (theta Virginis)", 311.42, 57.03,8),star("Zubeneschamali - β Librae (beta Librae)", 352.02, 39.23, 9),star("Zubenelgenubi - α2 Librae (alpha2 Librae)", 340.33, 38.01, 9),star("Brachium - σ Librae (sigma Librae)", 337.22, 28.62, 9),star("Zubenelhakrabi - γ Librae (gamma Librae)", 351.51, 32.2, 9),star("τ Librae (tau Librae)", 341.06, 20.45, 9),star("θ Librae (theta Librae)", 353.54, 27.72, 9),star("υ Librae (upsilon Librae)", 341.89, 21.94, 9),star("Antares - α Scorpii (alpha Scorpii)", 351.95, 15.06, 10),star("Shaula - λ Scorpii (lambda Scorpii)", 351.74, -2.21, 10),star("Sargas - θ Scorpii (theta Scorpii)", 347.14, -5.98, 10),star("Larawag - ε Scorpii (epsilon Scorpii)", 348.82, 6.56, 10),star("Dschubba - δ Scorpii (delta Scorpii)", 350.1, 22.49, 10),star("Acrab - β1 Scorpii (beta1 Scorpii)", 353.19, 23.6, 10),star("Lesath - υ Scorpii (upsilon Scorpii)", 351.27, -1.84, 10),star("Paikauhale - τ Scorpii (tau Scorpii)", 351.54, 12.81, 10),star("Fang - π Scorpii (pi Scorpii)", 347.22, 20.23, 10),star("Alniyat - σ Scorpii (sigma Scorpii)", 351.31, 17, 10),star("Xamidimura - μ1 Scorpii (mu1 Scorpii)", 346.12, 3.91, 10),star("Pipirima - μ2 Scorpii (mu2 Scorpii)", 346.2, 3.86, 10),star("Iklil - ρ Scorpii (rho Scorpii)", 344.63, 18.27, 10),star("Jabbah - ν Scorpii (nu Scorpii)", 354.61, 22.7, 10),star("κ Scorpii (kappa Scorpii)", 351.04, -4.72, 10),star("ι1 Scorpii (iota1 Scorpii)", 350.61, -6.13, 10),star("η Scorpii (eta Scorpii)", 344.37, -2.3, 10),star("ω1 Scorpii (omega1 Scorpii)", 352,57, 10),star("Kaus Australis - ε Sagittarii (epsilon Sagittarii)", 359.2, -9.81, 11),star("Nunki - σ Sagittarii (sigma Sagittarii)", 9.56, -12.43, 11),star("Ascella - ζ Sagittarii (zeta Sagittarii)", 6.84, -15.35, 11),star("Kaus Media - δ Sagittarii (delta Sagittarii)", 3, -7.15, 11),star("Kaus Borealis - λ Sagittarii (lambda Sagittarii)", 7.66, -6.52, 11),star("Albaldah - π Sagittarii (pi Sagittarii)", 15.89, -13.29, 11),star("Alnasl - γ2 Sagittarii (gamma2 Sagittarii)", 0.92, -4.54, 11),star("Polis - μ Sagittarii (mu Sagittarii)", 10, -1.6, 11),star("Rukbat - α Sagittarii (alpha Sagittarii)", 357.71, -23.09, 11),star("Arkab Prior - β1 Sagittarii (beta1 Sagittarii)", 353.61, -23.93, 10),star("Arkab Posterior - β2 Sagittarii (beta2 Sagittarii)", 353.28, -24.11, 11),star("η Sagittarii (eta Sagittarii)", 356.44, -9.68, 11),star("φ Sagittarii (phi Sagittarii)", 8, -10.77, 11),star("τ Sagittarii (tau Sagittarii)", 9.34, -15.37, 11),star("ο Sagittarii (omicron Sagittarii)", 14.71, -12.51, 11),star("ι Sagittarii (iota Sagittarii)", 357.97, -29.11, 11),star("ξ2 Sagittarii (xi2 Sagittarii)", 14.61, -10.78, 11)};
 
+void constellation::zodiac(int q)
+    {   
+
+    for(int i=1;i<14;i++)
+    {
+        if(C[i].startd<=q&&C[i].endd>=q)
+        {  cout<<"\nYour Zodiac Sign is ";
+        cout<<C[i].name;}
+    }
+    }
+
+
 // Main Function
 
 int main()
@@ -111,7 +126,8 @@ int main()
         case 1: {   printf("Enter Date of Bith in format dd/mm/yyyy: ");
 	                scanf("%d %d %d", &day, &month, &year);
                     z = date(day, month, year);
-                    zodiac(z);
+                    constellation ab = constellation("a",1,2,3,4);
+                    ab.zodiac(z);
                     break;
 
                 }
@@ -235,16 +251,7 @@ void read(string file_name)
    
 }
 
-void zodiac(int q)
-    {   
 
-    for(int i=1;i<14;i++)
-    {
-        if(C[i].startd<=q&&C[i].endd>=q)
-        {  cout<<"\nYour Zodiac Sign is ";
-        cout<<C[i].name;}
-    }
-    }
 
 
 int date(int a, int b, int c)
