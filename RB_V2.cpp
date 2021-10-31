@@ -123,7 +123,7 @@ int main()
     scanf("%d",&q);
     switch(q)
     {
-        case 1: {   printf("Enter Date of Bith in format dd/mm/yyyy: ");
+        case 1: {   printf("Enter Date of Birth in format dd/mm/yyyy: ");
 	                scanf("%d %d %d", &day, &month, &year);
                     z = date(day, month, year);
                     constellation ab = constellation("a",1,2,3,4);
