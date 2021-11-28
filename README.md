@@ -12,12 +12,12 @@ Some of the fetures are shown by the below images,
 In this image, a Full sky chart representation of 1st Jan 2021 night has been shown by using this program.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/constellation%20pisces.jpg" width="700" title="hover text">
+  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/constellation%20pisces.jpg" width="350" title="hover text">
 </p>
 In this image, a Pictorial representation of constellation picses has been shown by using this program.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/Libra%20constellation%20coordinates.jpg" width="700" title="hover text">
+  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/Libra%20constellation%20coordinates.jpg" width="400" title="hover text">
 </p>
 In this image, a coordinates of constellation Libra has been shown by using this program.
 
