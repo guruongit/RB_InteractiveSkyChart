@@ -4,6 +4,23 @@ An interactive sky chart is a map that presents the night sky as seen by the eye
   
 This program uses CPP programing language to make the stated chart that plots stars, planets, and other celestial bodies visible to the unaided eyes from any location, at any time of the day, on any date between the years 2005 to 2030, by simply entering your location in latitude and longitude. And it can plot heavens visible from anyone’s roof and can tell direction for to chase any star in the sky and it also tells anyone’s zodiac sign.
 
+Some of the fetures are shown by the below images,
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/Full_Sky_Chart.jpg" width="700" title="hover text">
+</p>
+In this image, a Full sky chart representation of 1st Jan 2021 night has been shown by using this program.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/constellation%20pisces.jpg" width="700" title="hover text">
+</p>
+In this image, a Pictorial representation of constellation picses has been shown by using this program.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/guruongit/RB_InteractiveSkyChart/main/Libra%20constellation%20coordinates.jpg" width="700" title="hover text">
+</p>
+In this image, a coordinates of constellation Libra has been shown by using this program.
+
 ## About Code -
 
    **Libraries Needed** - “iostream”, “math.h”, “time.h”, “unistd.h”, “Fstream” 
